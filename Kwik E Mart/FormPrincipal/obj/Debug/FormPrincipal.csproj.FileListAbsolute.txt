@@ -1,0 +1,15 @@
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\bin\Debug\FormPrincipal.exe.config
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\bin\Debug\FormPrincipal.exe
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\bin\Debug\FormPrincipal.pdb
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.csprojAssemblyReference.cache
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.Form1.resources
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.Properties.Resources.resources
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.csproj.GenerateResource.cache
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.csproj.CoreCompileInputs.cache
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.exe
+C:\Users\Lu\Desktop\PARCIAL LABO 2\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.pdb
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.csprojAssemblyReference.cache
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.Form1.resources
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.csproj.GenerateResource.cache
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.exe
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.pdb

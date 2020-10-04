@@ -1,0 +1,6 @@
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\bin\Debug\Kwik E Mart.dll
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\bin\Debug\Kwik E Mart.pdb
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\obj\Debug\Kwik E Mart.csproj.CoreCompileInputs.cache
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\obj\Debug\Kwik E Mart.dll
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\obj\Debug\Kwik E Mart.pdb
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\Kwik E Mart\obj\Debug\Kwik E Mart.csprojAssemblyReference.cache

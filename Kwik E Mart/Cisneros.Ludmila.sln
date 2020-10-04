@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kwik E Mart", "Kwik E Mart\Kwik E Mart.csproj", "{02F0611C-94EF-4BA9-ADD2-97F1714B3766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formularios", "FormPrincipal\Formularios.csproj", "{46CE7FC1-F8A3-4AC0-A0FF-533F67B36E15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F0611C-94EF-4BA9-ADD2-97F1714B3766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F0611C-94EF-4BA9-ADD2-97F1714B3766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F0611C-94EF-4BA9-ADD2-97F1714B3766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F0611C-94EF-4BA9-ADD2-97F1714B3766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CE7FC1-F8A3-4AC0-A0FF-533F67B36E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CE7FC1-F8A3-4AC0-A0FF-533F67B36E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CE7FC1-F8A3-4AC0-A0FF-533F67B36E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CE7FC1-F8A3-4AC0-A0FF-533F67B36E15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D962EA10-5FC0-4CFF-AF4D-E87468AD04FB}
+	EndGlobalSection
+EndGlobal
