@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormPrincipal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,10 @@ namespace Formularios
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            FormLogin login = new FormLogin();
+            Application.Run(login);
+
+            //Application.Run(new FormPrincipal());
         }
     }
 }

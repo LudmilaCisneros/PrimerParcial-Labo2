@@ -36,27 +36,11 @@
             this.btnMenuUsers = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hardcodearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menosDe10uToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarNuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblNombreUser = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -129,151 +113,41 @@
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.DarkRed;
-            this.flowLayoutPanel2.Controls.Add(this.menuStrip1);
+            this.flowLayoutPanel2.Controls.Add(this.lblUser);
+            this.flowLayoutPanel2.Controls.Add(this.lblNombreUser);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(246, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(934, 46);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // menuStrip1
+            // lblUser
             // 
-            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.menuStrip1.BackColor = System.Drawing.Color.DarkRed;
-            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.stockToolStripMenuItem});
-            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(204, 31);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(3, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(77, 22);
+            this.lblUser.TabIndex = 0;
+            this.lblUser.Text = "Usuario:";
             // 
-            // agregarToolStripMenuItem
+            // lblNombreUser
             // 
-            this.agregarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaCompraToolStripMenuItem,
-            this.nuevoClienteToolStripMenuItem,
-            this.hardcodearToolStripMenuItem});
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(65, 27);
-            this.agregarToolStripMenuItem.Text = "Cliente";
-            // 
-            // nuevaCompraToolStripMenuItem
-            // 
-            this.nuevaCompraToolStripMenuItem.Name = "nuevaCompraToolStripMenuItem";
-            this.nuevaCompraToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.nuevaCompraToolStripMenuItem.Text = "&Nueva compra";
-            // 
-            // nuevoClienteToolStripMenuItem
-            // 
-            this.nuevoClienteToolStripMenuItem.Name = "nuevoClienteToolStripMenuItem";
-            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.nuevoClienteToolStripMenuItem.Text = "Nuevo cliente";
-            // 
-            // hardcodearToolStripMenuItem
-            // 
-            this.hardcodearToolStripMenuItem.Name = "hardcodearToolStripMenuItem";
-            this.hardcodearToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
-            this.hardcodearToolStripMenuItem.Text = "Hardcodear";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verTodosToolStripMenuItem,
-            this.editarToolStripMenuItem,
-            this.eliminarToolStripMenuItem,
-            this.nuevoToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(70, 27);
-            this.usuariosToolStripMenuItem.Text = "Usuario";
-            // 
-            // verTodosToolStripMenuItem
-            // 
-            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(137, 28);
-            this.verTodosToolStripMenuItem.Text = "&Ver todos";
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(137, 28);
-            this.editarToolStripMenuItem.Text = "Editar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(137, 28);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuarioToolStripMenuItem});
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(137, 28);
-            this.nuevoToolStripMenuItem.Text = "Crear";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(128, 28);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // stockToolStripMenuItem
-            // 
-            this.stockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verTodoToolStripMenuItem,
-            this.verProductosToolStripMenuItem,
-            this.agregarNuevoToolStripMenuItem});
-            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(57, 27);
-            this.stockToolStripMenuItem.Text = "Stock";
-            // 
-            // verTodoToolStripMenuItem
-            // 
-            this.verTodoToolStripMenuItem.Name = "verTodoToolStripMenuItem";
-            this.verTodoToolStripMenuItem.Size = new System.Drawing.Size(172, 28);
-            this.verTodoToolStripMenuItem.Text = "&Ver todo";
-            // 
-            // verProductosToolStripMenuItem
-            // 
-            this.verProductosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menosDe10uToolStripMenuItem});
-            this.verProductosToolStripMenuItem.Name = "verProductosToolStripMenuItem";
-            this.verProductosToolStripMenuItem.Size = new System.Drawing.Size(172, 28);
-            this.verProductosToolStripMenuItem.Text = "&Ver productos";
-            // 
-            // menosDe10uToolStripMenuItem
-            // 
-            this.menosDe10uToolStripMenuItem.Name = "menosDe10uToolStripMenuItem";
-            this.menosDe10uToolStripMenuItem.Size = new System.Drawing.Size(164, 28);
-            this.menosDe10uToolStripMenuItem.Text = "Menos de 10u";
-            // 
-            // agregarNuevoToolStripMenuItem
-            // 
-            this.agregarNuevoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productoToolStripMenuItem});
-            this.agregarNuevoToolStripMenuItem.Name = "agregarNuevoToolStripMenuItem";
-            this.agregarNuevoToolStripMenuItem.Size = new System.Drawing.Size(172, 28);
-            this.agregarNuevoToolStripMenuItem.Text = "Agregar nuevo";
-            // 
-            // productoToolStripMenuItem
-            // 
-            this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(136, 28);
-            this.productoToolStripMenuItem.Text = "Producto";
+            this.lblNombreUser.AutoSize = true;
+            this.lblNombreUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreUser.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUser.ForeColor = System.Drawing.SystemColors.Info;
+            this.lblNombreUser.Location = new System.Drawing.Point(86, 0);
+            this.lblNombreUser.Name = "lblNombreUser";
+            this.lblNombreUser.Size = new System.Drawing.Size(59, 22);
+            this.lblNombreUser.TabIndex = 1;
+            this.lblNombreUser.Text = "label1";
             // 
             // FormPrincipal
             // 
@@ -285,17 +159,16 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPrincipal";
             this.Text = "Kwik E Mart";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPrincipal_FormClosed);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -308,24 +181,9 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnMenuUsers;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevaCompraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hardcodearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verTodosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verTodoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verProductosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menosDe10uToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarNuevoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productoToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblNombreUser;
     }
 }
 

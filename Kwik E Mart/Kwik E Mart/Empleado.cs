@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace Kwik_E_Mart
 {
-    public class Empleado : Persona
+    public class Empleado
     {
-        //usuario contra
-        private int legajo;
+        //public Dictionary<string,string>
+        private string usuario;
+        private string password;
+
+        public Empleado()
+        {
+            usuario = "";
+            password = "";
+        }
+
+        public Empleado(string usuario, string password):this()
+        {
+            this.usuario = usuario;
+            this.password = password;
+        }
+
+
 
 
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Kwik_E_Mart
 
         public static string AgregarMayuscula(string nombre)
         {
-            if(EsNumerico(nombre))
+            if (EsNumerico(nombre))
             {
                 return "No es un nombre";
             }
@@ -41,5 +42,7 @@ namespace Kwik_E_Mart
             }
         NOMBRE.TRIM elimina los espacios en blanco de un string
         }*/
+
+
     }
 }
