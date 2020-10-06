@@ -212,6 +212,7 @@ namespace Formularios
             DataGridViewRow db = dtgvCarrito.CurrentRow;
             DataGridViewCellCollection coleccionCeldasSelect = db.Cells;
             int i, stockNegocio;
+            float total = float.Parse(Validaciones.SacarSignoPeso(lblTotal.Text.ToString()));
 
             int idProducto = int.Parse(coleccionCeldasSelect[0].Value.ToString());
             string nombre = coleccionCeldasSelect[1].Value.ToString();
@@ -223,12 +224,12 @@ namespace Formularios
             if(i!=0)
             {
                 Cliente.carritoCliente.RemoveAt(i);
-                //EliminarFilaDtgv(dtgvCarrito, db);
                 i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
                 stockNegocio = Negocio.listaProductos[i].Stock;
                 Negocio.listaProductos[i].Stock = stockNegocio + 1;
                 ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
                 ActualizarDtgv(dtgvStock, Negocio.listaProductos);
+                lblTotal.Text = Validaciones.PonerSignoPeso((total - precio).ToString());
             }
 
         }
