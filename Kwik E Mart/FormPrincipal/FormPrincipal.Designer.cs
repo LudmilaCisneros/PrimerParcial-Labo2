@@ -32,8 +32,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNuevaCompra = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
             this.btnMenuUsers = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblUser = new System.Windows.Forms.Label();
@@ -81,17 +81,6 @@
             this.btnNuevaCompra.UseVisualStyleBackColor = true;
             this.btnNuevaCompra.Click += new System.EventHandler(this.btnNuevaCompra_Click);
             // 
-            // btnStock
-            // 
-            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStock.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnStock.Location = new System.Drawing.Point(3, 292);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(236, 71);
-            this.btnStock.TabIndex = 0;
-            this.btnStock.Text = "Stock";
-            this.btnStock.UseVisualStyleBackColor = true;
-            // 
             // btnMenuUsers
             // 
             this.btnMenuUsers.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -102,6 +91,18 @@
             this.btnMenuUsers.TabIndex = 2;
             this.btnMenuUsers.Text = "Usuarios";
             this.btnMenuUsers.UseVisualStyleBackColor = true;
+            this.btnMenuUsers.Click += new System.EventHandler(this.btnMenuUsers_Click);
+            // 
+            // btnStock
+            // 
+            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStock.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnStock.Location = new System.Drawing.Point(3, 292);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(236, 71);
+            this.btnStock.TabIndex = 0;
+            this.btnStock.Text = "Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
             // 
             // btnSalir
             // 
@@ -145,9 +146,9 @@
             this.lblNombreUser.ForeColor = System.Drawing.SystemColors.Info;
             this.lblNombreUser.Location = new System.Drawing.Point(86, 0);
             this.lblNombreUser.Name = "lblNombreUser";
-            this.lblNombreUser.Size = new System.Drawing.Size(59, 22);
+            this.lblNombreUser.Size = new System.Drawing.Size(99, 22);
             this.lblNombreUser.TabIndex = 1;
-            this.lblNombreUser.Text = "label1";
+            this.lblNombreUser.Text = "lblNombre";
             // 
             // FormPrincipal
             // 

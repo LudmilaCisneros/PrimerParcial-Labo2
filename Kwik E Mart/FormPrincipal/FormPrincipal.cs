@@ -39,5 +39,12 @@ namespace Formularios
             MessageBox.Show("Gracias,vuelva prontoss!!!", "adiosito", MessageBoxButtons.OK);
             this.login.Show();
         }
+
+        private void btnMenuUsers_Click(object sender, EventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios(usuario);
+            formUsuarios.Show();
+            //abrir ver usuarios y pass form agregar usuario
+        }
     }
 }

@@ -38,8 +38,6 @@ namespace Formularios
             DataGridViewRow db = dtgvStock.CurrentRow;
             DataGridViewCellCollection coleccionCeldas = db.Cells;
 
-
-
             if (db.Selected == false)
             {
                 MessageBox.Show("No has seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -53,15 +51,10 @@ namespace Formularios
                 else
                 {
                     ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
-                    //dtgvCarrito.Rows[0].Selected = false;
                     ActualizarDtgv(dtgvStock, Negocio.listaProductos);
-
                 }
-
             }
-
         }
-
         /// <summary>
         /// Actualiza el dtgv
         /// </summary>
@@ -161,7 +154,7 @@ namespace Formularios
 
             if (Validaciones.EsNumerico(totalStr))
             {
-                respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.OK)
                 {
                     this.guardarArchivo();

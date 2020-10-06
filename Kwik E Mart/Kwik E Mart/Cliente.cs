@@ -11,13 +11,13 @@ namespace Kwik_E_Mart
     {
         public static List<Producto> carritoCliente;
         public static bool simpsons = false;
-        public static float total;
+        //public static float total;
         
 
         static Cliente()
         {
             carritoCliente = new List<Producto>();
-            total = 0f;
+            //total = 0f;
         }
 
         public static float CalcularTotal()

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Kwik_E_Mart
 {
@@ -75,6 +77,17 @@ namespace Kwik_E_Mart
                 }
             }
             return index;
+        }
+        public static string generarTextoUsuariosPass()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (KeyValuePair<string,string> item in usuariosPass)
+            {
+                sb.AppendLine();
+                sb.AppendFormat("{0}  -  {1}\n", item.Key,item.Value);
+            }
+            return sb.ToString();
         }
 
     }
