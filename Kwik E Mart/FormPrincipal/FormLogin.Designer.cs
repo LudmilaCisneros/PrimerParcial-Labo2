@@ -119,6 +119,7 @@
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxUser);
             this.Controls.Add(this.lblInicioSesion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLogin";

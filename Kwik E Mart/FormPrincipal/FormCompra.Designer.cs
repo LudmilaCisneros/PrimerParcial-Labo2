@@ -276,7 +276,7 @@
             this.Controls.Add(this.dtgvStock);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(228, 305, 228, 305);
             this.MaximizeBox = false;

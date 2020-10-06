@@ -59,6 +59,7 @@
             // 
             this.txtUsuarios.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtUsuarios.Enabled = false;
+            this.txtUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarios.Location = new System.Drawing.Point(75, 56);
             this.txtUsuarios.Multiline = true;
             this.txtUsuarios.Name = "txtUsuarios";
@@ -87,6 +88,9 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblNombre);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormUsuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FormUsuarios_Load);
