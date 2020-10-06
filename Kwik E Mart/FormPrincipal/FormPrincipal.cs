@@ -7,15 +7,18 @@ namespace Formularios
     public partial class FormPrincipal : Form
     {
         FormLogin login;
-        public FormPrincipal(FormLogin login)
+        private string usuario;
+        public FormPrincipal(FormLogin login, string usuario)
         {
             InitializeComponent();
             this.login = login;
+            this.usuario = usuario;
+            lblNombreUser.Text = usuario;
         }
 
         private void btnNuevaCompra_Click(object sender, EventArgs e)
         {
-            FormCompra formCompra = new FormCompra();
+            FormCompra formCompra = new FormCompra(usuario);
             formCompra.Show();
         }
 
@@ -28,9 +31,6 @@ namespace Formularios
         {
             SoundPlayer player = new SoundPlayer("./apu.wav");
             player.Play();
-            //sonido.SoundLocation = "Kwik E Mark\\Kwik E Mart\\FormPrincipal\\gracias-vuelvas-prontos.wav";
-            //sonidoApu.Stream = apu; //.Stream = Properties.Resources.apu;
-            /*sonido.Play();*/
 
         }
 

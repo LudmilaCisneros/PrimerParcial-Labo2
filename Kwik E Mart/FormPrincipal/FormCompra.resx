@@ -120,16 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBoxFlecha.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMcAAACHCAYAAACiXU2qAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAHqSURBVHhe7d0xbgIxEAVQjkJJyRG4FdtBB7ej5DiERUJCAQVDvLbH+570ZWqUj2bMiiwAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIjmfz5fVanW5vrycTqfxhHnb7Xa3QjxmGAblYL5eleKe/X4/
-        njAf47h0OByeyvA7ysFsPO4TKVEOurfdbi/r9frpj/9dlINu/bVPpEQ56ErqPpES5aALn+4TKVEOQvt2
-        n0iJchDSf/eJlCgHoZQoxT3H43E8oV1T7BMp2Ww2t+V+LGRvGcdRz44FVqsUMwuRjJ9s10PKhAiUokpo
-        ldGpemiNUjQTWmF0ai7UphTNhhpyPgQok4WS7BOhQglTPgQok4Up2SdCh9zsE92EXOwT3YWMXr3BEjfk
-        slwuX73BEjfkZLTqKkzFTVX4MDUlCRtKMXKFC6X5HiRMqMnI1XRogWevmgwtsZc0FVpl5KoeWqck1UIU
-        Rq7iIRpXwcVCZLVGLr+VSxilr4L9yjrhlNpL/H8Owpp6L1EOujDO0dcja5SDruQcuZSDLuUoiXLQvW9H
-        LuVgNj69ClYOZid15FIOZuvdVbBywNWrvWQYBuWAu8eRy7NHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAQy2LxA766XeC8RhHhAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAMcAAACHCAYAAACiXU2qAAAABGdBTUEAALGPC/xhBQAAAepJREFUeF7t
+        3TFuAjEQBVCOQknJEbgV20EHt6PkOIRFQkIBBUO8tsf7nvRlapSPZsyKLAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAiOZ/Pl9Vqdbm+vJxOp/GEedvtdrdCPGYYBuVgvl6V4p79fj+eMB/juHQ4HJ7K8DvK
+        wWw87hMpUQ66t91uL+v1+umP/12Ug279tU+kRDnoSuo+kRLloAuf7hMpUQ5C+3afSIlyENJ/94mUKAeh
+        lCjFPcfjcTyhXVPsEynZbDa35X4sZG8Zx1HPjgVWqxQzC5GMn2zXQ8qECJSiSmiV0al6aI1SNBNaYXRq
+        LtSmFM2GGnI+BCiThZLsE6FCCVM+BCiThSnZJ0KH3OwT3YRc7BPdhYxevcESN+SyXC5fvcESN+RktOoq
+        TMVNVfgwNSUJG0oxcoULpfkeJEyoycjVdGiBZ6+aDC2xlzQVWmXkqh5apyTVQhRGruIhGlfBxUJktUYu
+        v5VLGKWvgv3KOuGU2kv8fw7CmnovUQ66MM7R1yNrlIOu5By5lIMu5SiJctC9b0cu5WA2Pr0KVg5mJ3Xk
+        Ug5m691VsHLA1au9ZBgG5YC7x5HLs0cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDL
+        YvEDvrpd4LxGEeEAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

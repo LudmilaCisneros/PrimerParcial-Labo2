@@ -7,19 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Kwik_E_Mart;
 
 namespace Formularios
 {
     public partial class FormCompra : Form
     {
-        public FormCompra()
+        private bool flag;
+        private string usuario;
+        public FormCompra(string usuario)
         {
             InitializeComponent();
+            flag = false;
+            this.usuario = usuario;
         }
 
         private void FormCompra_Load(object sender, EventArgs e)
         {
+            lblUser.Text = usuario;
             dtgvStock.AutoGenerateColumns = true;
             dtgvStock.DataSource = Negocio.listaProductos;
 
@@ -29,7 +35,7 @@ namespace Formularios
         {
             DataGridViewRow db = dtgvStock.CurrentRow;
             DataGridViewCellCollection coleccionCeldas = db.Cells;
-            bool hayStock;
+
 
 
             if (db.Selected == false)
@@ -75,7 +81,7 @@ namespace Formularios
         {
             bool hayStock = false;
             int i;
-            int auxStock;
+
             //PARSER
             int idProducto = int.Parse(coleccionDeCeldasSelect[0].Value.ToString());
             string nombre = coleccionDeCeldasSelect[1].Value.ToString();
@@ -105,12 +111,142 @@ namespace Formularios
 
         private void btnCalcularTotal_Click(object sender, EventArgs e)
         {
-            lblTotal.Text = Cliente.CalcularTotal().ToString();
+            float totalCarrito = Cliente.CalcularTotal();
+            string totalStr = "$";
+            
+            if(totalCarrito != 0)
+            {
+                totalStr = string.Concat(totalStr, totalCarrito.ToString());
+                lblTotal.Text = totalStr;
+            }
+            else
+            {
+                MessageBox.Show("No hay productos en el carrito","Error",MessageBoxButtons.OK);
+            }
+
         }
 
         private void checkBoxSimpsons_CheckedChanged(object sender, EventArgs e)
         {
-            //aplicar descuento del 13%
+            string totalStr = lblTotal.Text.ToString();
+            totalStr = Validaciones.SacarSignoPeso(totalStr);
+            float totalFloatSinDesc,totalFloatConDesc;
+            float.TryParse(totalStr, out totalFloatSinDesc);
+            
+
+            if (flag == false && checkBoxSimpsons.Checked && Validaciones.EsNumerico(totalStr))
+            {
+                Cliente.simpsons = true;
+                flag = true;
+                totalFloatConDesc = totalFloatSinDesc * 0.87f;
+                totalStr = Validaciones.PonerSignoPeso(totalFloatConDesc.ToString());
+                lblTotal.Text = totalStr;
+            }
+            else if(checkBoxSimpsons.Checked == false && Validaciones.EsNumerico(totalStr))
+            {
+                totalFloatSinDesc = Validaciones.Sacar13PorcAumento(totalFloatSinDesc);
+                lblTotal.Text = Validaciones.PonerSignoPeso(totalFloatSinDesc.ToString());
+                
+            }
+
+        }
+
+        private void btnHacerCompra_Click(object sender, EventArgs e)
+        {
+            string totalStr = lblTotal.Text.ToString();
+            totalStr = Validaciones.SacarSignoPeso(totalStr);
+            DialogResult respuesta;
+            StringBuilder sb = new StringBuilder();
+
+            if (Validaciones.EsNumerico(totalStr))
+            {
+                respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if(respuesta == DialogResult.OK)
+                {
+                    this.Close();
+                    //sb = Validaciones.generarInfoTicket(sb,usuario, Cliente.carritoCliente, totalStr);
+                    ////generarTicketTXT();
+                }
+  
+            }
+            else
+            {
+                MessageBox.Show("Todavia no añadió productos","Error",MessageBoxButtons.OK);
+            }
+        }
+        //private void generarTicketTXT(StringBuilder infoTicket)
+        //{
+        //    string path = "./";//pedirle a mati el path en donde guardarlo
+        //    if (!File.Exists(path))
+        //    {
+        //        // Create a file to write to.
+        //        using (StreamWriter sw = File.CreateText(path))
+        //        {
+        //            sw.WriteLine("Hello");
+        //            sw.WriteLine("And");
+        //            sw.WriteLine("Welcome");
+        //        }
+        //    }
+        //    else if(File.Exists(path))
+        //    {
+        //        TextWriter tw = new StreamWriter(path);
+        //        tw.WriteLine("The next line!");
+        //        tw.Close();
+        //    }
+        //}
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta;
+
+            respuesta = MessageBox.Show("¿Esta seguro que desea salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(respuesta == DialogResult.Yes)
+            {
+                Cliente.carritoCliente.Clear();
+                this.Close();
+            }
+        }
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow db = dtgvCarrito.CurrentRow;
+            DataGridViewCellCollection coleccionCeldasSelect = db.Cells;
+            int i, stockNegocio;
+
+            int idProducto = int.Parse(coleccionCeldasSelect[0].Value.ToString());
+            string nombre = coleccionCeldasSelect[1].Value.ToString();
+            string tipo = coleccionCeldasSelect[2].Value.ToString();
+            float precio = float.Parse(coleccionCeldasSelect[3].Value.ToString());
+            int stock = int.Parse(coleccionCeldasSelect[4].Value.ToString());
+
+            i = Negocio.EncontrarIndexEnLista(Cliente.carritoCliente, idProducto);
+            if(i!=0)
+            {
+                Cliente.carritoCliente.RemoveAt(i);
+                //EliminarFilaDtgv(dtgvCarrito, db);
+                i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
+                stockNegocio = Negocio.listaProductos[i].Stock;
+                Negocio.listaProductos[i].Stock = stockNegocio + 1;
+                ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
+                ActualizarDtgv(dtgvStock, Negocio.listaProductos);
+            }
+
+        }
+        private static void EliminarStockPorId(List<Producto> listaProductos,int idProducto)
+        {
+            for (int i = 0; i < listaProductos.Count; i++)
+            {
+                if(idProducto == listaProductos[i].IdProducto)
+                {
+
+                    break;
+                }
+            }
+        }
+        private static void EliminarFilaDtgv(DataGridView miDtgv, DataGridViewRow filaSeleccionada)
+        {
+            miDtgv.Rows.Remove(filaSeleccionada);
+            return ;
         }
     }
 }

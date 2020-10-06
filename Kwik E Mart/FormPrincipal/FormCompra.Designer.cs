@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompra));
             this.dtgvStock = new System.Windows.Forms.DataGridView();
             this.dtgvCarrito = new System.Windows.Forms.DataGridView();
@@ -40,6 +40,11 @@
             this.lblTextTotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnCalcularTotal = new System.Windows.Forms.Button();
+            this.btnHacerCompra = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFlecha)).BeginInit();
@@ -52,8 +57,8 @@
             this.dtgvStock.AllowUserToDeleteRows = false;
             this.dtgvStock.AllowUserToResizeColumns = false;
             this.dtgvStock.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dtgvStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dtgvStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvStock.BackgroundColor = System.Drawing.Color.Maroon;
@@ -74,13 +79,14 @@
             this.dtgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCarrito.Location = new System.Drawing.Point(48, 45);
             this.dtgvCarrito.Name = "dtgvCarrito";
+            this.dtgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvCarrito.Size = new System.Drawing.Size(260, 328);
             this.dtgvCarrito.TabIndex = 1;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(385, 244);
+            this.btnAgregar.Location = new System.Drawing.Point(385, 216);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 2;
@@ -114,7 +120,7 @@
             // 
             this.pictureBoxFlecha.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxFlecha.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxFlecha.BackgroundImage")));
-            this.pictureBoxFlecha.Location = new System.Drawing.Point(336, 125);
+            this.pictureBoxFlecha.Location = new System.Drawing.Point(334, 88);
             this.pictureBoxFlecha.Name = "pictureBoxFlecha";
             this.pictureBoxFlecha.Size = new System.Drawing.Size(173, 113);
             this.pictureBoxFlecha.TabIndex = 5;
@@ -125,7 +131,7 @@
             this.checkBoxSimpsons.AutoSize = true;
             this.checkBoxSimpsons.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSimpsons.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxSimpsons.Location = new System.Drawing.Point(48, 392);
+            this.checkBoxSimpsons.Location = new System.Drawing.Point(347, 387);
             this.checkBoxSimpsons.Name = "checkBoxSimpsons";
             this.checkBoxSimpsons.Size = new System.Drawing.Size(143, 23);
             this.checkBoxSimpsons.TabIndex = 6;
@@ -138,7 +144,7 @@
             this.lblTextTotal.AutoSize = true;
             this.lblTextTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTextTotal.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextTotal.Location = new System.Drawing.Point(316, 401);
+            this.lblTextTotal.Location = new System.Drawing.Point(328, 353);
             this.lblTextTotal.Name = "lblTextTotal";
             this.lblTextTotal.Size = new System.Drawing.Size(102, 31);
             this.lblTextTotal.TabIndex = 7;
@@ -150,7 +156,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Maroon;
-            this.lblTotal.Location = new System.Drawing.Point(424, 406);
+            this.lblTotal.Location = new System.Drawing.Point(436, 358);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(36, 26);
             this.lblTotal.TabIndex = 8;
@@ -159,13 +165,70 @@
             // btnCalcularTotal
             // 
             this.btnCalcularTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcularTotal.Location = new System.Drawing.Point(385, 294);
+            this.btnCalcularTotal.Location = new System.Drawing.Point(385, 274);
             this.btnCalcularTotal.Name = "btnCalcularTotal";
             this.btnCalcularTotal.Size = new System.Drawing.Size(75, 23);
             this.btnCalcularTotal.TabIndex = 9;
             this.btnCalcularTotal.Text = "Calcular";
             this.btnCalcularTotal.UseVisualStyleBackColor = true;
             this.btnCalcularTotal.Click += new System.EventHandler(this.btnCalcularTotal_Click);
+            // 
+            // btnHacerCompra
+            // 
+            this.btnHacerCompra.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHacerCompra.Location = new System.Drawing.Point(385, 422);
+            this.btnHacerCompra.Name = "btnHacerCompra";
+            this.btnHacerCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnHacerCompra.TabIndex = 10;
+            this.btnHacerCompra.Text = "Finalizar";
+            this.btnHacerCompra.UseVisualStyleBackColor = true;
+            this.btnHacerCompra.Click += new System.EventHandler(this.btnHacerCompra_Click);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitar.Location = new System.Drawing.Point(147, 379);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 11;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(280, 422);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.Red;
+            this.lblUser.Location = new System.Drawing.Point(356, 28);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(116, 28);
+            this.lblUser.TabIndex = 13;
+            this.lblUser.Text = "Vendedor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(367, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 19);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Vendedor: ";
             // 
             // FormCompra
             // 
@@ -175,6 +238,11 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(880, 457);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnQuitar);
+            this.Controls.Add(this.btnHacerCompra);
             this.Controls.Add(this.btnCalcularTotal);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTextTotal);
@@ -216,5 +284,10 @@
         private System.Windows.Forms.Label lblTextTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnCalcularTotal;
+        private System.Windows.Forms.Button btnHacerCompra;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label label1;
     }
 }

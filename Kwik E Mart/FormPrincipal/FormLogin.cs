@@ -13,6 +13,7 @@ namespace Formularios
 {
     public partial class FormLogin : Form
     {
+
         public FormLogin()
         {
             InitializeComponent();
@@ -20,15 +21,19 @@ namespace Formularios
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            FormPrincipal formPrincipal = new FormPrincipal(this);
             string supuestoUsuario = txtBoxUser.Text;
             string supuestoPass = txtBoxPassword.Text;
 
+            supuestoUsuario = Validaciones.AgregarMayuscula(supuestoUsuario);
+
+            FormPrincipal formPrincipal = new FormPrincipal(this,supuestoUsuario);
+
             if (Negocio.usuariosPass.ContainsKey(supuestoUsuario) && Negocio.usuariosPass.ContainsValue(supuestoPass))
             {
-                //lblUser.Text = supuestoUsuario;
                 formPrincipal.Show();
                 this.Hide();
+                txtBoxUser.Text = "";
+                txtBoxPassword.Text = "";
             }
             else
             {

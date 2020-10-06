@@ -10,14 +10,8 @@ namespace Kwik_E_Mart
     public static class Cliente
     {
         public static List<Producto> carritoCliente;
-        /*private enum mediosDePago
-        {
-            tarjetaCredito = 0,
-            tarjetaDebito = 1,
-            efectivo = 2
-        };
-        mediosDePago medioDePago;*/
-        static float total;
+        public static bool simpsons = false;
+        public static float total;
         
 
         static Cliente()
@@ -25,6 +19,7 @@ namespace Kwik_E_Mart
             carritoCliente = new List<Producto>();
             total = 0f;
         }
+
         public static float CalcularTotal()
         {
             float total = 0;

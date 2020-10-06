@@ -48,8 +48,8 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.btnNuevaCompra);
-            this.flowLayoutPanel1.Controls.Add(this.btnStock);
             this.flowLayoutPanel1.Controls.Add(this.btnMenuUsers);
+            this.flowLayoutPanel1.Controls.Add(this.btnStock);
             this.flowLayoutPanel1.Controls.Add(this.btnSalir);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -85,7 +85,7 @@
             // 
             this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStock.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnStock.Location = new System.Drawing.Point(3, 214);
+            this.btnStock.Location = new System.Drawing.Point(3, 292);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(236, 71);
             this.btnStock.TabIndex = 0;
@@ -96,7 +96,7 @@
             // 
             this.btnMenuUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuUsers.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnMenuUsers.Location = new System.Drawing.Point(3, 291);
+            this.btnMenuUsers.Location = new System.Drawing.Point(3, 214);
             this.btnMenuUsers.Name = "btnMenuUsers";
             this.btnMenuUsers.Size = new System.Drawing.Size(236, 72);
             this.btnMenuUsers.TabIndex = 2;

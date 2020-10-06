@@ -27,3 +27,4 @@ C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.
 C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.exe
 C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipal.pdb
 C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormLogin.resources
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormLogin.resources
