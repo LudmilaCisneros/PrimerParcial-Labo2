@@ -263,7 +263,6 @@ namespace Formularios
             }
 
         }
-
         private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
         {
             SoundPlayer player = new SoundPlayer("./CajaRegistradora.wav");
