@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompra));
             this.dtgvStock = new System.Windows.Forms.DataGridView();
             this.dtgvCarrito = new System.Windows.Forms.DataGridView();
@@ -57,12 +59,21 @@
             this.dtgvStock.AllowUserToDeleteRows = false;
             this.dtgvStock.AllowUserToResizeColumns = false;
             this.dtgvStock.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dtgvStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dtgvStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgvStock.BackgroundColor = System.Drawing.Color.Maroon;
+            this.dtgvStock.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtgvStock.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvStock.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvStock.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dtgvStock.Location = new System.Drawing.Point(526, 45);
             this.dtgvStock.MultiSelect = false;
             this.dtgvStock.Name = "dtgvStock";
@@ -75,9 +86,19 @@
             // 
             // dtgvCarrito
             // 
-            this.dtgvCarrito.BackgroundColor = System.Drawing.Color.Maroon;
+            this.dtgvCarrito.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtgvCarrito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCarrito.Location = new System.Drawing.Point(48, 45);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvCarrito.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgvCarrito.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dtgvCarrito.Location = new System.Drawing.Point(46, 45);
             this.dtgvCarrito.Name = "dtgvCarrito";
             this.dtgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvCarrito.Size = new System.Drawing.Size(260, 328);
@@ -263,6 +284,7 @@
             this.Name = "FormCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCompra";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCompra_FormClosing);
             this.Load += new System.EventHandler(this.FormCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarrito)).EndInit();

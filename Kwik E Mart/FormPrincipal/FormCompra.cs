@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Formularios
     {
         private bool flag;
         private string usuario;
+
         public FormCompra(string usuario)
         {
             InitializeComponent();
@@ -44,16 +46,16 @@ namespace Formularios
             }
             else
             {
-                if(!AgregarFilaALista(coleccionCeldas))
+                if (!this.AgregarFilaALista(coleccionCeldas))
                 {
                     MessageBox.Show("No hay stock", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    
                     ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
+                    //dtgvCarrito.Rows[0].Selected = false;
                     ActualizarDtgv(dtgvStock, Negocio.listaProductos);
-                    
+
                 }
 
             }
@@ -70,7 +72,6 @@ namespace Formularios
             miDtgv.DataSource = null;
             miDtgv.DataSource = listaAMostrar;
         }
-
 
         /// <summary>
         /// Agrega la fila del drgv a la lista carrito
@@ -90,14 +91,14 @@ namespace Formularios
             int stock = int.Parse(coleccionDeCeldasSelect[4].Value.ToString());
 
             hayStock = Producto.VerificarStock(stock);
-            if(hayStock)
+            if (hayStock)
             {
-               Cliente.carritoCliente.Add(new Producto(idProducto,nombre, 1, precio, tipo));//agregar          
+                Cliente.carritoCliente.Add(new Producto(idProducto, nombre, 1, precio, tipo));//agregar          
                 i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
-                if(i != -1)
+                if (i != -1)
                 {
                     Negocio.listaProductos[i].Stock = stock - 1;
-                    
+
                 }
             }
             return hayStock;
@@ -113,15 +114,15 @@ namespace Formularios
         {
             float totalCarrito = Cliente.CalcularTotal();
             string totalStr = "$";
-            
-            if(totalCarrito != 0)
+
+            if (totalCarrito != 0)
             {
                 totalStr = string.Concat(totalStr, totalCarrito.ToString());
                 lblTotal.Text = totalStr;
             }
             else
             {
-                MessageBox.Show("No hay productos en el carrito","Error",MessageBoxButtons.OK);
+                MessageBox.Show("No hay productos en el carrito", "Error", MessageBoxButtons.OK);
             }
 
         }
@@ -130,9 +131,9 @@ namespace Formularios
         {
             string totalStr = lblTotal.Text.ToString();
             totalStr = Validaciones.SacarSignoPeso(totalStr);
-            float totalFloatSinDesc,totalFloatConDesc;
+            float totalFloatSinDesc, totalFloatConDesc;
             float.TryParse(totalStr, out totalFloatSinDesc);
-            
+
 
             if (flag == false && checkBoxSimpsons.Checked && Validaciones.EsNumerico(totalStr))
             {
@@ -142,11 +143,11 @@ namespace Formularios
                 totalStr = Validaciones.PonerSignoPeso(totalFloatConDesc.ToString());
                 lblTotal.Text = totalStr;
             }
-            else if(checkBoxSimpsons.Checked == false && Validaciones.EsNumerico(totalStr))
+            else if (checkBoxSimpsons.Checked == false && Validaciones.EsNumerico(totalStr))
             {
                 totalFloatSinDesc = Validaciones.Sacar13PorcAumento(totalFloatSinDesc);
                 lblTotal.Text = Validaciones.PonerSignoPeso(totalFloatSinDesc.ToString());
-                
+
             }
 
         }
@@ -161,39 +162,61 @@ namespace Formularios
             if (Validaciones.EsNumerico(totalStr))
             {
                 respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-                if(respuesta == DialogResult.OK)
+                if (respuesta == DialogResult.OK)
                 {
+                    this.guardarArchivo();
                     this.Close();
-                    //sb = Validaciones.generarInfoTicket(sb,usuario, Cliente.carritoCliente, totalStr);
-                    ////generarTicketTXT();
+
                 }
-  
+
             }
             else
             {
-                MessageBox.Show("Todavia no añadió productos","Error",MessageBoxButtons.OK);
+                MessageBox.Show("Todavia no añadió productos", "Error", MessageBoxButtons.OK);
             }
         }
-        //private void generarTicketTXT(StringBuilder infoTicket)
-        //{
-        //    string path = "./";//pedirle a mati el path en donde guardarlo
-        //    if (!File.Exists(path))
-        //    {
-        //        // Create a file to write to.
-        //        using (StreamWriter sw = File.CreateText(path))
-        //        {
-        //            sw.WriteLine("Hello");
-        //            sw.WriteLine("And");
-        //            sw.WriteLine("Welcome");
-        //        }
-        //    }
-        //    else if(File.Exists(path))
-        //    {
-        //        TextWriter tw = new StreamWriter(path);
-        //        tw.WriteLine("The next line!");
-        //        tw.Close();
-        //    }
-        //}
+        private void guardarArchivo()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = ".txt";
+            saveFileDialog.FileName = "ticket";
+            saveFileDialog.Filter = "Documentos de texto (.txt)|*.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                using (StreamWriter sw = File.CreateText(saveFileDialog.FileName))
+                {
+                    sw.WriteLine(this.generarTextoTicket());
+                    sw.Close();
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Operación cancelada", "Advertencia", MessageBoxButtons.OK);
+            }
+        }
+
+        private string generarTextoTicket() 
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("(͡ ° ᴥ ͡ °) |°KWIK E MART°| (｡◕‿‿◕｡)\n", this.usuario);
+            sb.AppendFormat("***Vendedor: {0}***\n", this.usuario);
+            sb.AppendFormat("   *.Productos.*\n");
+
+            foreach(Producto producto in Cliente.carritoCliente)
+            {
+                sb.Append(producto.ImprimirProducto());
+                sb.AppendLine("-------------------");
+            }
+            sb.AppendFormat("TOTAL: {0}\n", lblTotal.Text.ToString());
+            if(checkBoxSimpsons.Checked)
+            {
+                sb.Append("Desc 13% -- Familia Simpsons");
+            }
+
+            return sb.ToString();
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -201,7 +224,7 @@ namespace Formularios
 
             respuesta = MessageBox.Show("¿Esta seguro que desea salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(respuesta == DialogResult.Yes)
+            if (respuesta == DialogResult.Yes)
             {
                 Cliente.carritoCliente.Clear();
                 this.Close();
@@ -220,34 +243,32 @@ namespace Formularios
             float precio = float.Parse(coleccionCeldasSelect[3].Value.ToString());
             int stock = int.Parse(coleccionCeldasSelect[4].Value.ToString());
 
-            i = Negocio.EncontrarIndexEnLista(Cliente.carritoCliente, idProducto);
-            if(i!=0)
+            if (total > 0)
             {
-                Cliente.carritoCliente.RemoveAt(i);
-                i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
-                stockNegocio = Negocio.listaProductos[i].Stock;
-                Negocio.listaProductos[i].Stock = stockNegocio + 1;
-                ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
-                ActualizarDtgv(dtgvStock, Negocio.listaProductos);
-                lblTotal.Text = Validaciones.PonerSignoPeso((total - precio).ToString());
-            }
-
-        }
-        private static void EliminarStockPorId(List<Producto> listaProductos,int idProducto)
-        {
-            for (int i = 0; i < listaProductos.Count; i++)
-            {
-                if(idProducto == listaProductos[i].IdProducto)
+                i = Negocio.EncontrarIndexEnLista(Cliente.carritoCliente, idProducto);
+                if (i != -1)
                 {
-
-                    break;
+                    Cliente.carritoCliente.RemoveAt(i);
+                    i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
+                    stockNegocio = Negocio.listaProductos[i].Stock;
+                    Negocio.listaProductos[i].Stock = stockNegocio + 1;
+                    ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
+                    ActualizarDtgv(dtgvStock, Negocio.listaProductos);
+                    lblTotal.Text = Validaciones.PonerSignoPeso((total - precio).ToString());
                 }
             }
+            else
+            {
+                MessageBox.Show("Seleccione el producto a eliminar,o falta calcular", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
-        private static void EliminarFilaDtgv(DataGridView miDtgv, DataGridViewRow filaSeleccionada)
+
+        private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
         {
-            miDtgv.Rows.Remove(filaSeleccionada);
-            return ;
+            SoundPlayer player = new SoundPlayer("./CajaRegistradora.wav");
+            player.Play();
+
         }
     }
 }

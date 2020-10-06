@@ -90,6 +90,19 @@ namespace Kwik_E_Mart
             }
             return hayStock;
         }
+        public string ImprimirProducto()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine();
+            sb.AppendFormat("idProducto: {0}\n", this.IdProducto);
+            sb.AppendFormat("Nombre: {0}\n", this.Nombre);
+            sb.AppendFormat("cantidad: {0}\n", this.Stock);
+            sb.AppendFormat("Tipo: {0}\n", this.Tipo);
+            sb.AppendFormat("Precio: {0}\n", this.Precio);
+            sb.AppendLine();
+
+            return sb.ToString();
+        }
 
 
 

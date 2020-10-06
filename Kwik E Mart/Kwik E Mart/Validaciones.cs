@@ -59,26 +59,7 @@ namespace Kwik_E_Mart
         {
             return numero / 0.87f;
         }
-        //public static StringBuilder generarInfoTicket(StringBuilder sb,string vendedor,List<Producto> carritoCliente,string precioFinal)
-        //{
-        //    string carrito;
-        //    // Append three characters (D, E, and F) to the end of the StringBuilder.
-        //    sb.Append(new char[] { 'D', 'E', 'F' });
 
-        //    // Append a format string to the end of the StringBuilder.
-        //    sb.AppendFormat("GHI{0}{1}", 'J', 'k');
-
-        //    // Insert a string at the beginning of the StringBuilder.
-        //    sb.AppendFormat("Vendedor: {0}\n",vendedor);
-        //    sb.AppendFormat("Vendedor: {0}\n",Cliente.carritoCliente[0].Nombre);
-        //    foreach (Producto item in Cliente.carritoCliente)
-        //    {
-        //        carrito = item.Nombre
-        //    }
-        //    sb.AppendFormat("Vendedor: {0}\n",vendedor);
-
-        //    return sb;
-        //}
 
     }
         
