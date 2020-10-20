@@ -47,6 +47,9 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtBoxNombreCte = new System.Windows.Forms.TextBox();
+            this.lblNombreCte = new System.Windows.Forms.Label();
+            this.cboxMedioDePago = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFlecha)).BeginInit();
@@ -74,7 +77,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvStock.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvStock.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dtgvStock.Location = new System.Drawing.Point(526, 45);
+            this.dtgvStock.Location = new System.Drawing.Point(548, 40);
             this.dtgvStock.MultiSelect = false;
             this.dtgvStock.Name = "dtgvStock";
             this.dtgvStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -98,7 +101,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvCarrito.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvCarrito.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dtgvCarrito.Location = new System.Drawing.Point(46, 45);
+            this.dtgvCarrito.Location = new System.Drawing.Point(28, 40);
             this.dtgvCarrito.Name = "dtgvCarrito";
             this.dtgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvCarrito.Size = new System.Drawing.Size(260, 328);
@@ -152,7 +155,7 @@
             this.checkBoxSimpsons.AutoSize = true;
             this.checkBoxSimpsons.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSimpsons.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxSimpsons.Location = new System.Drawing.Point(347, 387);
+            this.checkBoxSimpsons.Location = new System.Drawing.Point(361, 315);
             this.checkBoxSimpsons.Name = "checkBoxSimpsons";
             this.checkBoxSimpsons.Size = new System.Drawing.Size(143, 23);
             this.checkBoxSimpsons.TabIndex = 6;
@@ -186,7 +189,7 @@
             // btnCalcularTotal
             // 
             this.btnCalcularTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcularTotal.Location = new System.Drawing.Point(385, 274);
+            this.btnCalcularTotal.Location = new System.Drawing.Point(384, 264);
             this.btnCalcularTotal.Name = "btnCalcularTotal";
             this.btnCalcularTotal.Size = new System.Drawing.Size(75, 23);
             this.btnCalcularTotal.TabIndex = 9;
@@ -197,7 +200,7 @@
             // btnHacerCompra
             // 
             this.btnHacerCompra.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHacerCompra.Location = new System.Drawing.Point(385, 422);
+            this.btnHacerCompra.Location = new System.Drawing.Point(441, 422);
             this.btnHacerCompra.Name = "btnHacerCompra";
             this.btnHacerCompra.Size = new System.Drawing.Size(75, 23);
             this.btnHacerCompra.TabIndex = 10;
@@ -208,7 +211,7 @@
             // btnQuitar
             // 
             this.btnQuitar.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitar.Location = new System.Drawing.Point(147, 379);
+            this.btnQuitar.Location = new System.Drawing.Point(28, 374);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(75, 23);
             this.btnQuitar.TabIndex = 11;
@@ -219,7 +222,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(280, 422);
+            this.btnSalir.Location = new System.Drawing.Point(307, 422);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 12;
@@ -251,6 +254,36 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Vendedor: ";
             // 
+            // txtBoxNombreCte
+            // 
+            this.txtBoxNombreCte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreCte.ForeColor = System.Drawing.Color.OrangeRed;
+            this.txtBoxNombreCte.Location = new System.Drawing.Point(55, 422);
+            this.txtBoxNombreCte.Name = "txtBoxNombreCte";
+            this.txtBoxNombreCte.Size = new System.Drawing.Size(219, 20);
+            this.txtBoxNombreCte.TabIndex = 15;
+            // 
+            // lblNombreCte
+            // 
+            this.lblNombreCte.AutoSize = true;
+            this.lblNombreCte.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreCte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCte.Location = new System.Drawing.Point(52, 406);
+            this.lblNombreCte.Name = "lblNombreCte";
+            this.lblNombreCte.Size = new System.Drawing.Size(183, 13);
+            this.lblNombreCte.TabIndex = 16;
+            this.lblNombreCte.Text = "INGRESE NOMBRE CLIENTE: ";
+            // 
+            // cboxMedioDePago
+            // 
+            this.cboxMedioDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxMedioDePago.FormattingEnabled = true;
+            this.cboxMedioDePago.Location = new System.Drawing.Point(625, 389);
+            this.cboxMedioDePago.Name = "cboxMedioDePago";
+            this.cboxMedioDePago.Size = new System.Drawing.Size(121, 21);
+            this.cboxMedioDePago.TabIndex = 17;
+            this.cboxMedioDePago.Text = "Medio de pago";
+            // 
             // FormCompra
             // 
             this.AllowDrop = true;
@@ -259,6 +292,9 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(880, 457);
+            this.Controls.Add(this.cboxMedioDePago);
+            this.Controls.Add(this.lblNombreCte);
+            this.Controls.Add(this.txtBoxNombreCte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSalir);
@@ -311,5 +347,8 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBoxNombreCte;
+        private System.Windows.Forms.Label lblNombreCte;
+        private System.Windows.Forms.ComboBox cboxMedioDePago;
     }
 }

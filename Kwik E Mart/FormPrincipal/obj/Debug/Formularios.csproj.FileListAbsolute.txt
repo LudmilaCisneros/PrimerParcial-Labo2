@@ -29,3 +29,4 @@ C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\FormPrincipa
 C:\Users\Lu\Desktop\Kwik E Mark\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormLogin.resources
 C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormLogin.resources
 C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormUsuarios.resources
+C:\Users\Lu\Desktop\Kwik E Mart\Kwik E Mart\FormPrincipal\obj\Debug\Formularios.FormVerCompras.resources

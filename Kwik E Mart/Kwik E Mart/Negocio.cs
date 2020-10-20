@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,16 +12,18 @@ namespace Kwik_E_Mart
     public static class Negocio
     {
         public static List<Producto> listaProductos;
-        public static Dictionary<string,string> usuariosPass;
-
+        public static List<Compra> listaCompras;
+        public static Dictionary<string, string> usuariosPass;
+        private static int autoIncrement;
 
         static Negocio()
         {
             listaProductos = new List<Producto>();
+            listaCompras = new List<Compra>();
             usuariosPass = new Dictionary<string, string>();
             CargarUsuariosPasswords();
-            //listaEmpleados = new List<Empleado>();
             CargarProductosDisponibles(listaProductos);
+            autoIncrement = 0;
         }
 
         public static void CargarUsuariosPasswords()
@@ -28,6 +31,10 @@ namespace Kwik_E_Mart
             usuariosPass.Add("Apu", "1234");
             usuariosPass.Add("Sanjay", "holi");
         }
+        /// <summary>
+        /// Hardcodeo stock disponible
+        /// </summary>
+        /// <param name="listaProductos"></param>
         public static void CargarProductosDisponibles(List<Producto> listaProductos)
         {
             listaProductos.Add(new Producto(1, "cerveza Duff", 20, 100, Producto.ETipo.bebida));
@@ -64,6 +71,37 @@ namespace Kwik_E_Mart
 
             return;
         }
+
+        private static void HardcodearCompra()
+        {
+            Random random = new Random();
+            Cliente cliente = new Cliente();
+            Compra nuevaCompra;
+            string auxCliente;
+            int aux;
+            int length = random.Next(3, 15);
+
+            for (int i = 0; i < length; i++)
+            {
+                aux = random.Next(0, listaProductos.Count - 1);
+                cliente.carritoCliente.Add(listaProductos[aux]);
+                listaProductos[aux].Stock = listaProductos[aux].Stock - 1;
+            }
+            auxCliente = "cliente ";
+            auxCliente = string.Concat(auxCliente, autoIncrement.ToString());
+            nuevaCompra = new Compra(cliente, auxCliente , "Apu","efectivo");
+            listaCompras.Add(nuevaCompra);
+            autoIncrement++;            
+        }
+
+        public static void HardcodearCompras()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                HardcodearCompra();
+            }
+        }
+
         public static int EncontrarIndexEnLista(List<Producto> listaProductos, int idProducto)
         {
             int index = -1;
@@ -82,12 +120,20 @@ namespace Kwik_E_Mart
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (KeyValuePair<string,string> item in usuariosPass)
+            foreach (KeyValuePair<string, string> item in usuariosPass)
             {
                 sb.AppendLine();
-                sb.AppendFormat("{0}  -  {1}\n", item.Key,item.Value);
+                sb.AppendFormat("{0}  -  {1}\n", item.Key, item.Value);
             }
             return sb.ToString();
+        }
+        public static List<string> HardcodearMediosDePago(List<string> mediosDePagoHabilitados)
+        {
+            mediosDePagoHabilitados.Add("efectivo");
+            mediosDePagoHabilitados.Add("debito");
+            mediosDePagoHabilitados.Add("credito");
+
+            return mediosDePagoHabilitados;
         }
 
     }

@@ -17,19 +17,25 @@ namespace Formularios
     {
         private bool flag;
         private string usuario;
+        private Cliente miCliente;
 
+        //constructor
         public FormCompra(string usuario)
         {
             InitializeComponent();
+            miCliente = new Cliente();
             flag = false;
             this.usuario = usuario;
+            
         }
 
         private void FormCompra_Load(object sender, EventArgs e)
         {
+            List<string> mediosDePagoHabilitados = new List <string>();
             lblUser.Text = usuario;
             dtgvStock.AutoGenerateColumns = true;
             dtgvStock.DataSource = Negocio.listaProductos;
+            cboxMedioDePago.DataSource = Negocio.HardcodearMediosDePago(mediosDePagoHabilitados);
 
         }
 
@@ -50,7 +56,7 @@ namespace Formularios
                 }
                 else
                 {
-                    ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
+                    ActualizarDtgv(dtgvCarrito, miCliente.carritoCliente);
                     ActualizarDtgv(dtgvStock, Negocio.listaProductos);
                 }
             }
@@ -86,7 +92,7 @@ namespace Formularios
             hayStock = Producto.VerificarStock(stock);
             if (hayStock)
             {
-                Cliente.carritoCliente.Add(new Producto(idProducto, nombre, 1, precio, tipo));//agregar          
+                miCliente.carritoCliente.Add(new Producto(idProducto, nombre, 1, precio, tipo));//agregar          
                 i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
                 if (i != -1)
                 {
@@ -105,7 +111,7 @@ namespace Formularios
 
         private void btnCalcularTotal_Click(object sender, EventArgs e)
         {
-            float totalCarrito = Cliente.CalcularTotal();
+            float totalCarrito = miCliente.CalcularTotal();
             string totalStr = "$";
 
             if (totalCarrito != 0)
@@ -119,7 +125,11 @@ namespace Formularios
             }
 
         }
-
+        /// <summary>
+        /// Si esta check on se le aplica el descuento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxSimpsons_CheckedChanged(object sender, EventArgs e)
         {
             string totalStr = lblTotal.Text.ToString();
@@ -130,7 +140,7 @@ namespace Formularios
 
             if (flag == false && checkBoxSimpsons.Checked && Validaciones.EsNumerico(totalStr))
             {
-                Cliente.simpsons = true;
+                miCliente.simpsons = true;
                 flag = true;
                 totalFloatConDesc = totalFloatSinDesc * 0.87f;
                 totalStr = Validaciones.PonerSignoPeso(totalFloatConDesc.ToString());
@@ -144,31 +154,50 @@ namespace Formularios
             }
 
         }
-
+        /// <summary>
+        /// Si presiona el btnFinalizar guarda el archivo, y agrega el cte a la lista de clientes .
+        /// --
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHacerCompra_Click(object sender, EventArgs e)
         {
+            SoundPlayer player = new SoundPlayer("./CajaRegistradora.wav");
             string totalStr = lblTotal.Text.ToString();
             totalStr = Validaciones.SacarSignoPeso(totalStr);
             DialogResult respuesta;
+            Compra compra;
+            string mPago = VerificarMedioDePago();
+            string nombreCliente = txtBoxNombreCte.Text;
+            nombreCliente = Validaciones.AgregarMayuscula(nombreCliente);
             StringBuilder sb = new StringBuilder();
 
-            if (Validaciones.EsNumerico(totalStr))
+            if (Validaciones.EsNumerico(totalStr) && !string.IsNullOrEmpty(nombreCliente) && !Validaciones.EsNumerico(nombreCliente) && mPago != null)
             {
                 respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.OK)
                 {
-                    this.guardarArchivo();
+                    player.Play();
+                    compra = new Compra(miCliente, nombreCliente, usuario, mPago);
+                    this.guardarArchivo(compra);
+
+                    if(Negocio.listaCompras + compra)
+                    {
+                        MessageBox.Show("Compra Exitosa");
+                    }    
                     this.Close();
-
                 }
-
             }
             else
             {
-                MessageBox.Show("Todavia no añadió productos", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Se generó algun error", "Error", MessageBoxButtons.OK);
             }
         }
-        private void guardarArchivo()
+
+        /// <summary>
+        /// Lanza un saveFileDialog, y le da desicion de guardar ticket al usuario
+        /// </summary>
+        private void guardarArchivo(Compra compra)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.DefaultExt = ".txt";
@@ -180,24 +209,33 @@ namespace Formularios
 
                 using (StreamWriter sw = File.CreateText(saveFileDialog.FileName))
                 {
-                    sw.WriteLine(this.generarTextoTicket());
+                    sw.WriteLine(this.generarTextoTicket(compra));
                     sw.Close();
                 }
             }
             else 
             {
-                MessageBox.Show("Operación cancelada", "Advertencia", MessageBoxButtons.OK);
+                MessageBox.Show("No se generó ticket", "Advertencia", MessageBoxButtons.OK);
             }
         }
 
-        private string generarTextoTicket() 
+        /// <summary>
+        /// Diseño del ticket
+        /// </summary>
+        /// <returns>Devuelve un string con el texto del ticket</returns>
+        private string generarTextoTicket(Compra compra) 
         {
             StringBuilder sb = new StringBuilder();
+            string mPago;
+            
             sb.AppendFormat("(͡ ° ᴥ ͡ °) |°KWIK E MART°| (｡◕‿‿◕｡)\n", this.usuario);
             sb.AppendFormat("***Vendedor: {0}***\n", this.usuario);
-            sb.AppendFormat("   *.Productos.*\n");
+            //string mpago = compra.MediodePago;
+            mPago = compra.MediodePago.GenerarTicketMediodePago();
+            sb.AppendFormat(mPago);
+            sb.AppendFormat(" *.Productos.*\n");
 
-            foreach(Producto producto in Cliente.carritoCliente)
+            foreach(Producto producto in miCliente.carritoCliente)
             {
                 sb.Append(producto.ImprimirProducto());
                 sb.AppendLine("-------------------");
@@ -210,7 +248,26 @@ namespace Formularios
 
             return sb.ToString();
         }
+        /// <summary>
+        /// Devuelve que metodo de pago seleccionó
+        /// </summary>
+        /// <returns></returns>
+        private string VerificarMedioDePago()
+        {
+            string mPago = cboxMedioDePago.SelectedItem.ToString();
 
+            if (mPago != null)
+            {
+                return mPago;
+            }
+
+            return mPago;
+        }
+        /// <summary>
+        /// Dejar de comprar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult respuesta;
@@ -219,10 +276,15 @@ namespace Formularios
 
             if (respuesta == DialogResult.Yes)
             {
-                Cliente.carritoCliente.Clear();
+                 miCliente.carritoCliente.Clear();
                 this.Close();
             }
         }
+        /// <summary>
+        /// Saca un producto del dtgv de los seleccionados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             DataGridViewRow db = dtgvCarrito.CurrentRow;
@@ -238,14 +300,14 @@ namespace Formularios
 
             if (total > 0)
             {
-                i = Negocio.EncontrarIndexEnLista(Cliente.carritoCliente, idProducto);
+                i = Negocio.EncontrarIndexEnLista(miCliente.carritoCliente, idProducto);
                 if (i != -1)
                 {
-                    Cliente.carritoCliente.RemoveAt(i);
+                    miCliente.carritoCliente.RemoveAt(i);
                     i = Negocio.EncontrarIndexEnLista(Negocio.listaProductos, idProducto);
                     stockNegocio = Negocio.listaProductos[i].Stock;
                     Negocio.listaProductos[i].Stock = stockNegocio + 1;
-                    ActualizarDtgv(dtgvCarrito, Cliente.carritoCliente);
+                    ActualizarDtgv(dtgvCarrito, miCliente.carritoCliente);
                     ActualizarDtgv(dtgvStock, Negocio.listaProductos);
                     lblTotal.Text = Validaciones.PonerSignoPeso((total - precio).ToString());
                 }
@@ -258,8 +320,7 @@ namespace Formularios
         }
         private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer("./CajaRegistradora.wav");
-            player.Play();
+
 
         }
     }

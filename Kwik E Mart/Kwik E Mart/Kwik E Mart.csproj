@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="Compra.cs" />
+    <Compile Include="credito.cs" />
+    <Compile Include="debito.cs" />
+    <Compile Include="efectivo.cs" />
+    <Compile Include="MedioDePago.cs" />
     <Compile Include="Negocio.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

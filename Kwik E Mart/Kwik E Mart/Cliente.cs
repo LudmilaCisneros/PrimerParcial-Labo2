@@ -7,27 +7,40 @@ using System.Threading.Tasks;
 
 namespace Kwik_E_Mart
 {
-    public static class Cliente
+    public class Cliente
     {
-        public static List<Producto> carritoCliente;
-        public static bool simpsons = false;
-        //public static float total;
-        
+        public List<Producto> carritoCliente;
+        public bool simpsons;
+        public float total;
+        //nombre
 
-        static Cliente()
+
+        public Cliente()
         {
             carritoCliente = new List<Producto>();
-            //total = 0f;
+            simpsons = false;
+            total = 0f;
+        }
+        public Cliente(bool esSimpsons, List<Producto> carritoCliente,float total) : this()
+        {
+            this.carritoCliente.AddRange(carritoCliente);
+            this.simpsons = true;
+            this.total = total;
+        }
+        public float Total
+        {
+            set { this.total = value; }
         }
 
-        public static float CalcularTotal()
+
+        public float CalcularTotal()
         {
             float total = 0;
             for (int i = 0; i < carritoCliente.Count; i++)
             {
                 total += carritoCliente[i].Precio;
             }
-            return total;
+            return this.Total = total;
         }
 
     }

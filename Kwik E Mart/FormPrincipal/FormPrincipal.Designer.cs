@@ -32,8 +32,9 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNuevaCompra = new System.Windows.Forms.Button();
-            this.btnMenuUsers = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
+            this.btnMenuUsers = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblUser = new System.Windows.Forms.Label();
@@ -48,8 +49,9 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.btnNuevaCompra);
-            this.flowLayoutPanel1.Controls.Add(this.btnMenuUsers);
+            this.flowLayoutPanel1.Controls.Add(this.btnCompras);
             this.flowLayoutPanel1.Controls.Add(this.btnStock);
+            this.flowLayoutPanel1.Controls.Add(this.btnMenuUsers);
             this.flowLayoutPanel1.Controls.Add(this.btnSalir);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -75,42 +77,53 @@
             this.btnNuevaCompra.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaCompra.Location = new System.Drawing.Point(3, 137);
             this.btnNuevaCompra.Name = "btnNuevaCompra";
-            this.btnNuevaCompra.Size = new System.Drawing.Size(236, 71);
+            this.btnNuevaCompra.Size = new System.Drawing.Size(236, 46);
             this.btnNuevaCompra.TabIndex = 1;
             this.btnNuevaCompra.Text = "Nueva compra";
             this.btnNuevaCompra.UseVisualStyleBackColor = true;
             this.btnNuevaCompra.Click += new System.EventHandler(this.btnNuevaCompra_Click);
             // 
-            // btnMenuUsers
+            // btnCompras
             // 
-            this.btnMenuUsers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuUsers.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnMenuUsers.Location = new System.Drawing.Point(3, 214);
-            this.btnMenuUsers.Name = "btnMenuUsers";
-            this.btnMenuUsers.Size = new System.Drawing.Size(236, 72);
-            this.btnMenuUsers.TabIndex = 2;
-            this.btnMenuUsers.Text = "Usuarios";
-            this.btnMenuUsers.UseVisualStyleBackColor = true;
-            this.btnMenuUsers.Click += new System.EventHandler(this.btnMenuUsers_Click);
+            this.btnCompras.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCompras.Location = new System.Drawing.Point(3, 189);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(236, 46);
+            this.btnCompras.TabIndex = 4;
+            this.btnCompras.Text = "Ver compras";
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnStock
             // 
             this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStock.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnStock.Location = new System.Drawing.Point(3, 292);
+            this.btnStock.Location = new System.Drawing.Point(3, 241);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(236, 71);
+            this.btnStock.Size = new System.Drawing.Size(236, 47);
             this.btnStock.TabIndex = 0;
             this.btnStock.Text = "Stock";
             this.btnStock.UseVisualStyleBackColor = true;
+            // 
+            // btnMenuUsers
+            // 
+            this.btnMenuUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuUsers.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMenuUsers.Location = new System.Drawing.Point(3, 294);
+            this.btnMenuUsers.Name = "btnMenuUsers";
+            this.btnMenuUsers.Size = new System.Drawing.Size(236, 48);
+            this.btnMenuUsers.TabIndex = 2;
+            this.btnMenuUsers.Text = "Usuarios";
+            this.btnMenuUsers.UseVisualStyleBackColor = true;
+            this.btnMenuUsers.Click += new System.EventHandler(this.btnMenuUsers_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSalir.Location = new System.Drawing.Point(3, 369);
+            this.btnSalir.Location = new System.Drawing.Point(3, 348);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(236, 68);
+            this.btnSalir.Size = new System.Drawing.Size(236, 79);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -146,9 +159,8 @@
             this.lblNombreUser.ForeColor = System.Drawing.SystemColors.Info;
             this.lblNombreUser.Location = new System.Drawing.Point(86, 0);
             this.lblNombreUser.Name = "lblNombreUser";
-            this.lblNombreUser.Size = new System.Drawing.Size(99, 22);
+            this.lblNombreUser.Size = new System.Drawing.Size(0, 22);
             this.lblNombreUser.TabIndex = 1;
-            this.lblNombreUser.Text = "lblNombre";
             // 
             // FormPrincipal
             // 
@@ -166,6 +178,7 @@
             this.Text = "Kwik E Mart";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -185,6 +198,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblNombreUser;
+        private System.Windows.Forms.Button btnCompras;
     }
 }
 

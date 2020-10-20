@@ -72,6 +72,7 @@ namespace Kwik_E_Mart
                 this.tipo = (ETipo) Enum.Parse(typeof(ETipo), tipo);
             }
         }
+        
         public static int RestarStock(int stock)
         {
             return stock-1;

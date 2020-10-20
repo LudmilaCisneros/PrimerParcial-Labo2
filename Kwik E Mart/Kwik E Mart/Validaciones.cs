@@ -33,7 +33,7 @@ namespace Kwik_E_Mart
         /// <returns>string </returns>
         public static string AgregarMayuscula(string nombre)
         {
-            if (EsNumerico(nombre))
+            if (EsNumerico(nombre) || string.IsNullOrEmpty(nombre))
             {
                 return "No es un nombre";
             }
