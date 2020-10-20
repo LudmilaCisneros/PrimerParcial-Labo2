@@ -36,6 +36,7 @@ namespace Formularios
             }
             else
             {
+                MessageBox.Show("hola");
                 EncontrarYMostrarCualCompraEs(coleccionCeldasSelect);
             }
             ActualizarDtgvCompra(dtgvVerCompras, Negocio.listaCompras);
@@ -47,13 +48,14 @@ namespace Formularios
         /// <param name="coleccionDeCeldasSelect"></param>
         private void EncontrarYMostrarCualCompraEs(DataGridViewCellCollection filaSeleccionada)
         {
-            string nombreCte = filaSeleccionada[0].Value.ToString();//ACA
+            string nombreCte = filaSeleccionada[0].ToString();//ACA
             int index = Negocio.EncontrarCompraPorNombreCte(nombreCte);
 
             if (index != -1)
             {
-                ActualizarDtgvProductos(dtgvVerDetalleCompras, Negocio.listaCompras[0].cliente.carritoCliente);
-                ActualizarDtgvCompra(dtgvVerCompras, Negocio.listaCompras);
+                MessageBox.Show(index.ToString());
+                dtgvVerDetalleCompras.DataSource = null;
+                dtgvVerDetalleCompras.DataSource = Negocio.listaCompras[index].cliente.carritoCliente;
             }
 
         }
@@ -77,6 +79,11 @@ namespace Formularios
         {
             miDtgv.DataSource = null;
             miDtgv.DataSource = listaAMostrar;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
