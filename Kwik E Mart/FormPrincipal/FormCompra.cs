@@ -50,7 +50,7 @@ namespace Formularios
             }
             else
             {
-                if (!this.AgregarFilaALista(coleccionCeldas))
+                if (!AgregarFilaALista(coleccionCeldas))//
                 {
                     MessageBox.Show("No hay stock", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -172,7 +172,7 @@ namespace Formularios
             nombreCliente = Validaciones.AgregarMayuscula(nombreCliente);
             StringBuilder sb = new StringBuilder();
 
-            if (Validaciones.EsNumerico(totalStr) && !string.IsNullOrEmpty(nombreCliente) && !Validaciones.EsNumerico(nombreCliente) && mPago != null)
+            if (Validaciones.EsNumerico(totalStr) && nombreCliente != "No es un nombre" && !Validaciones.EsNumerico(nombreCliente) && mPago != null)
             {
                 respuesta = MessageBox.Show("¿Quiere confirmar la compra?", "Compra", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.OK)
@@ -316,11 +316,6 @@ namespace Formularios
             {
                 MessageBox.Show("Seleccione el producto a eliminar,o falta calcular", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-        }
-        private void FormCompra_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
 
         }
     }

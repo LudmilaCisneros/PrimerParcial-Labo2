@@ -8,11 +8,16 @@ namespace Kwik_E_Mart
 {
     public class Compra
     {
+        #region Atributos
+
         private string nombreCliente;
         private string nombreVendedor;
-        Cliente cliente;
+        public Cliente cliente;
         private MedioDePago medioPago;
 
+        #endregion
+
+        #region Constructores
         private Compra()
         {
             this.nombreCliente = "";
@@ -26,26 +31,11 @@ namespace Kwik_E_Mart
         {
             this.nombreCliente = nombreCte;
             this.nombreVendedor = nombreVendedor;
-            cualFormaDePago(formaDePago);
+            CualFormaDePago(formaDePago);
         }
-        private void cualFormaDePago(string formaDePago)
-        {
-            switch(formaDePago)
-            {
-                case "efectivo":
-                    this.medioPago = new efectivo();
-                    break;
+        #endregion
 
-                case "debito":
-                    this.medioPago = new debito();
-                    break;
-
-                case "credito":
-                    this.medioPago = new credito();
-                    break;
-
-            }
-        }
+        #region Propiedades
         public string NombreCliente
         {
             get { return this.nombreCliente; }
@@ -72,6 +62,9 @@ namespace Kwik_E_Mart
             }
             return existe;
         }
+        #endregion
+
+        #region Sobrecarga operadores
         public static bool operator !=(List<Compra> listaAux, Compra compra)
         {
             return !(listaAux == compra);
@@ -108,7 +101,29 @@ namespace Kwik_E_Mart
             }
             return seResto;
         }
+        #endregion
 
+        #region Métodos
+        private void CualFormaDePago(string formaDePago)
+        {
+            switch (formaDePago)
+            {
+                case "efectivo":
+                    this.medioPago = new efectivo();
+                    break;
+
+                case "debito":
+                    this.medioPago = new debito();
+                    break;
+
+                case "credito":
+                    this.medioPago = new credito();
+                    break;
+
+            }
+        }
+
+        #endregion
     }
-    
+
 }

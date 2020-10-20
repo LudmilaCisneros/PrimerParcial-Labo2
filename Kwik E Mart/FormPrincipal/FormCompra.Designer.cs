@@ -320,7 +320,6 @@
             this.Name = "FormCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCompra";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCompra_FormClosing);
             this.Load += new System.EventHandler(this.FormCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarrito)).EndInit();

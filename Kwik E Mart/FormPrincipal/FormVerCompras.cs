@@ -18,35 +18,65 @@ namespace Formularios
             InitializeComponent();
             dtgvVerCompras.DataSource = Negocio.listaCompras;
         }
-
-        private void FormVerCompras_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Cuando presionas el boton te actualiza en el otro dtgv el detalle de la compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVerProductos_Click(object sender, EventArgs e)
         {
+            
+            DataGridViewRow filaSeleccionada = dtgvVerCompras.CurrentRow;
+            DataGridViewCellCollection coleccionCeldasSelect = filaSeleccionada.Cells;
 
-            //int cantCompras = Negocio.listaCompras.Count;
-            //List<string> listaClientesAux = new List<string>();
+            if (filaSeleccionada.Selected == false)
+            {
+                MessageBox.Show("No has seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            //listaClientesAux = Negocio.CargarListaClientes(cantCompras);
-            //dtgvVerClientes.DataSource = listaClientesAux;
-            //MessageBox.Show("cant compras:"+ cantCompras.ToString());
-            //dtgvVerClientes.AutoGenerateColumns = true;
-            //ActualizarDtgv(dtgvVerClientes, listaClientesAux);
+            }
+            else
+            {
+                EncontrarYMostrarCualCompraEs(coleccionCeldasSelect);
+            }
+            ActualizarDtgvCompra(dtgvVerCompras, Negocio.listaCompras);
+
+        }
+        /// <summary>
+        /// Encuentra cual compra es la seleccionada en el dtgvVerCompras
+        /// </summary>
+        /// <param name="coleccionDeCeldasSelect"></param>
+        private void EncontrarYMostrarCualCompraEs(DataGridViewCellCollection filaSeleccionada)
+        {
+            string nombreCte = filaSeleccionada[0].Value.ToString();//ACA
+            int index = Negocio.EncontrarCompraPorNombreCte(nombreCte);
+
+            if (index != -1)
+            {
+                ActualizarDtgvProductos(dtgvVerDetalleCompras, Negocio.listaCompras[0].cliente.carritoCliente);
+                ActualizarDtgvCompra(dtgvVerCompras, Negocio.listaCompras);
+            }
+
         }
 
-        //private void AgregarColumnasDtgv()
         /// <summary>
         /// Actualiza el dtgv
         /// </summary>
         /// <param name="miDtgv"></param>
         /// <param name="listaAMostrar"></param>
-        private void ActualizarDtgv(DataGridView miDtgv, List<string> listaAMostrar)//Cambiar tipo de lista
+        private void ActualizarDtgvCompra(DataGridView miDtgv, List<Compra> listaAMostrar)//Cambiar tipo de lista
         {
             miDtgv.DataSource = null;
             miDtgv.DataSource = listaAMostrar;
         }
-
-        //private void dtgvVerClientes_RowEnter(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
+        /// <summary>
+        /// Actualiza el dtgv
+        /// </summary>
+        /// <param name="miDtgv"></param>
+        /// <param name="listaAMostrar"></param>
+        private void ActualizarDtgvProductos(DataGridView miDtgv, List<Producto> listaAMostrar)//Cambiar tipo de lista
+        {
+            miDtgv.DataSource = null;
+            miDtgv.DataSource = listaAMostrar;
+        }
     }
 }

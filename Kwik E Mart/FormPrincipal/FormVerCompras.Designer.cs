@@ -30,6 +30,7 @@
         {
             this.dtgvVerDetalleCompras = new System.Windows.Forms.DataGridView();
             this.dtgvVerCompras = new System.Windows.Forms.DataGridView();
+            this.btnVerProductos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvVerDetalleCompras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvVerCompras)).BeginInit();
             this.SuspendLayout();
@@ -43,8 +44,12 @@
             this.dtgvVerDetalleCompras.Location = new System.Drawing.Point(293, 109);
             this.dtgvVerDetalleCompras.Name = "dtgvVerDetalleCompras";
             this.dtgvVerDetalleCompras.ReadOnly = true;
-            this.dtgvVerDetalleCompras.Size = new System.Drawing.Size(283, 150);
+            this.dtgvVerDetalleCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvVerDetalleCompras.ShowEditingIcon = false;
+            this.dtgvVerDetalleCompras.Size = new System.Drawing.Size(283, 196);
             this.dtgvVerDetalleCompras.TabIndex = 0;
+            this.dtgvVerDetalleCompras.TabStop = false;
+            this.dtgvVerDetalleCompras.VirtualMode = true;
             // 
             // dtgvVerCompras
             // 
@@ -60,20 +65,33 @@
             this.dtgvVerCompras.Name = "dtgvVerCompras";
             this.dtgvVerCompras.ReadOnly = true;
             this.dtgvVerCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvVerCompras.Size = new System.Drawing.Size(275, 150);
+            this.dtgvVerCompras.Size = new System.Drawing.Size(275, 196);
             this.dtgvVerCompras.TabIndex = 1;
+            // 
+            // btnVerProductos
+            // 
+            this.btnVerProductos.Location = new System.Drawing.Point(149, 311);
+            this.btnVerProductos.Name = "btnVerProductos";
+            this.btnVerProductos.Size = new System.Drawing.Size(120, 34);
+            this.btnVerProductos.TabIndex = 2;
+            this.btnVerProductos.Text = "Ver productos";
+            this.btnVerProductos.UseVisualStyleBackColor = true;
+            this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
             // 
             // FormVerCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(588, 450);
+            this.Controls.Add(this.btnVerProductos);
             this.Controls.Add(this.dtgvVerCompras);
             this.Controls.Add(this.dtgvVerDetalleCompras);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormVerCompras";
             this.Text = "FormVerCompras";
-            this.Load += new System.EventHandler(this.FormVerCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvVerDetalleCompras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvVerCompras)).EndInit();
             this.ResumeLayout(false);
@@ -84,5 +102,6 @@
 
         private System.Windows.Forms.DataGridView dtgvVerDetalleCompras;
         private System.Windows.Forms.DataGridView dtgvVerCompras;
+        private System.Windows.Forms.Button btnVerProductos;
     }
 }

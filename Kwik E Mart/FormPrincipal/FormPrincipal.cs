@@ -56,7 +56,7 @@ namespace Formularios
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            Negocio.HardcodearCompras();
+            //Negocio.HardcodearCompras();
         }
     }
 }

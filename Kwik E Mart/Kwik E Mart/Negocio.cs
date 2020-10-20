@@ -22,7 +22,7 @@ namespace Kwik_E_Mart
             listaCompras = new List<Compra>();
             usuariosPass = new Dictionary<string, string>();
             CargarUsuariosPasswords();
-            CargarProductosDisponibles(listaProductos);
+            CargarProductosDisponibles();
             autoIncrement = 0;
         }
 
@@ -35,7 +35,7 @@ namespace Kwik_E_Mart
         /// Hardcodeo stock disponible
         /// </summary>
         /// <param name="listaProductos"></param>
-        public static void CargarProductosDisponibles(List<Producto> listaProductos)
+        public static void CargarProductosDisponibles()
         {
             listaProductos.Add(new Producto(1, "cerveza Duff", 20, 100, Producto.ETipo.bebida));
             listaProductos.Add(new Producto(2, "cigarrillos Laramie", 10, 150, Producto.ETipo.varios));
@@ -72,28 +72,6 @@ namespace Kwik_E_Mart
             return;
         }
 
-        private static void HardcodearCompra()
-        {
-            Random random = new Random();
-            Cliente cliente = new Cliente();
-            Compra nuevaCompra;
-            string auxCliente;
-            int aux;
-            int length = random.Next(3, 15);
-
-            for (int i = 0; i < length; i++)
-            {
-                aux = random.Next(0, listaProductos.Count - 1);
-                cliente.carritoCliente.Add(listaProductos[aux]);
-                listaProductos[aux].Stock = listaProductos[aux].Stock - 1;
-            }
-            auxCliente = "cliente ";
-            auxCliente = string.Concat(auxCliente, autoIncrement.ToString());
-            nuevaCompra = new Compra(cliente, auxCliente , "Apu","efectivo");
-            listaCompras.Add(nuevaCompra);
-            autoIncrement++;            
-        }
-
         public static void HardcodearCompras()
         {
             for (int i = 0; i < 50; i++)
@@ -101,7 +79,31 @@ namespace Kwik_E_Mart
                 HardcodearCompra();
             }
         }
+        private static void HardcodearCompra()
+        {
+            Random random = new Random();
+            Cliente cliente = new Cliente();
+            Compra nuevaCompra;
+            string auxCliente;
+            int aux;
+            int length = random.Next(3, 5);
 
+            //hardcodear productos
+            for (int i = 0; i < length; i++)
+            {
+                aux = random.Next(0, listaProductos.Count - 1);
+                if (listaProductos[aux].Stock > 0)
+                {
+                    cliente.carritoCliente.Add(listaProductos[aux]);
+                    listaProductos[aux].Stock = listaProductos[aux].Stock - 1;
+                }
+            }
+            auxCliente = "cliente ";
+            auxCliente = string.Concat(auxCliente, autoIncrement.ToString());
+            nuevaCompra = new Compra(cliente, auxCliente, "Apu", "efectivo");
+            listaCompras.Add(nuevaCompra);
+            autoIncrement++;
+        }
         public static int EncontrarIndexEnLista(List<Producto> listaProductos, int idProducto)
         {
             int index = -1;
@@ -134,6 +136,25 @@ namespace Kwik_E_Mart
             mediosDePagoHabilitados.Add("credito");
 
             return mediosDePagoHabilitados;
+        }
+        /// <summary>
+        /// Encuentra cual compra del cliente
+        /// </summary>
+        /// <param name="coleccionDeCeldasSelect"></param>
+        /// /// <returns>el carrito de ese cliente</returns>
+        public static int EncontrarCompraPorNombreCte(string nombreCte)
+        {
+            int index = -1;
+
+            for (int i = 0; i < listaCompras.Count-1; i++)
+            {
+                if(listaCompras[i].NombreCliente == nombreCte)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
 
     }
